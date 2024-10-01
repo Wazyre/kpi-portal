@@ -3,6 +3,8 @@ import { Navigate, useNavigate } from "react-router-dom";
 import ApproveKPI from "./ApproveKPI";
 import { ListGroup } from "react-bootstrap";
 
+const CASPIO_LINK = process.env.REACT_APP_CASPIO_LINK;
+
 const ChooseKPI = () => {
     const [token, setToken] = useState("");
     const [formData, setFormData] = useState([]);
@@ -22,11 +24,11 @@ const ChooseKPI = () => {
     const handleClick = (e, name, id) => {
         // console.log(e)
         e.preventDefault();
-        navigate(`/approvekpi/${name}`, {state:{id: id}})
+        navigate(`/kpi-portal/approvekpi/${name}`, {state:{id: id}})
     };
 
     useEffect(() => {
-        fetch('https://c3hch526.caspio.com/oauth/token', {
+        fetch(CASPIO_LINK + 'oauth/token', {
             method: 'POST',
             body: 'grant_type=client_credentials&client_id=a2fd89ad266d44155aacc97f651f0d011d4b9406d8d2f16bcb& client_secret=31d60501c58b4d2c8ca28dda729a8cd633e34444c88fc26ac7',
             headers: { 'Content-type': 'application/json' }
@@ -41,7 +43,7 @@ const ChooseKPI = () => {
     }, []);
 
     useEffect(() => {
-        fetch('https://c3hch526.caspio.com/rest/v2/tables/KPI_Main/records?q.select=name%2C%20id&q.where=approve_status%3D0%20AND%20comment%3D\'\'', {
+        fetch(CASPIO_LINK + 'rest/v2/tables/KPI_Main/records?q.select=name%2C%20id&q.where=approve_status%3D0%20AND%20comment%3D\'\'', {
             method: 'GET',
             headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'applicaiton/json' }
         })

@@ -4,7 +4,12 @@ import { Button, Col, Form, Row } from 'react-bootstrap'
 
 import '../styles/mainStyle.css'
 
-// Change Pillar and dependency to names and freqpyear
+// Component responsible for approving new KPIs through
+// a form. Uploads to Caspio database.
+// All communication with Caspio is done through REST
+// calls. Please review Caspio Account for access details.
+
+const CASPIO_LINK = process.env.REACT_APP_CASPIO_LINK;
 
 const ApproveKPI = () => {
     const [token, setToken] = useState(0);
@@ -18,8 +23,7 @@ const ApproveKPI = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(approve)
-        fetch('https://c3hch526.caspio.com/rest/v2/tables/KPI_Main/records?response=rows&q.where=id%3D' + location.state.id, {
+        fetch(CASPIO_LINK + 'rest/v2/tables/KPI_Main/records?response=rows&q.where=id%3D' + location.state.id, {
             method: 'PUT',
             body: `{
         "approve_status": "${approve}",
@@ -44,7 +48,8 @@ const ApproveKPI = () => {
 
 
     useEffect(() => {
-        fetch('https://c3hch526.caspio.com/oauth/token', {
+        console.log(CASPIO_LINK + 'oauth/token')
+        fetch(CASPIO_LINK + 'oauth/token', {
             method: 'POST',
             body: 'grant_type=client_credentials&client_id=a2fd89ad266d44155aacc97f651f0d011d4b9406d8d2f16bcb& client_secret=31d60501c58b4d2c8ca28dda729a8cd633e34444c88fc26ac7',
             headers: { 'Content-type': 'application/json' }
@@ -59,7 +64,7 @@ const ApproveKPI = () => {
     }, []);
 
     useEffect(() => {
-        fetch('https://c3hch526.caspio.com/rest/v2/tables/KPI_Main/records?q.where=id%3D' + location.state.id, {
+        fetch(CASPIO_LINK + 'rest/v2/tables/KPI_Main/records?q.where=id%3D' + location.state.id, {
             method: 'GET',
             headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'applicaiton/json' }
         })

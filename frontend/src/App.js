@@ -13,9 +13,9 @@ const App = () => {
         <Router>
             <Banner/>
             <Routes>
-                <Route path="/" element={<Main/>} />
-                <Route path="/addkpi" element={<AddKPI />} />
-                <Route path="/approvekpi" element={<ApproveMain />} >
+                <Route path="/kpi-portal" element={<Main/>} />
+                <Route path="/kpi-portal/addkpi" element={<AddKPI />} />
+                <Route path="/kpi-portal/approvekpi" element={<ApproveMain />} >
                     <Route index element={<ChooseKPI />} />
                     <Route path=":kpi" element={<ApproveKPI />} />
                 </Route>

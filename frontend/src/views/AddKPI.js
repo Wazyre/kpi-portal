@@ -1,18 +1,12 @@
 import { useState, useEffect } from 'react';
-import {Button, Col, Form, Row} from 'react-bootstrap'
+import {Button, Col, Form, Row} from 'react-bootstrap';
 
-// const initialStates = {
-//   name: "",
-//   objId: -1,
-//   dependencyId: -1,
-//   department: "",
-//   level: -1,
-//   freqpyear: -1,
-//   formula: "",
-//   dataSource: "",
-//   resultProvider: "",
-//   year: -1
-// };
+// Component responsible for adding new KPIs through
+// a form. Uploads to Caspio database.
+// All communication with Caspio is done through REST 
+// calls. Please review Caspio Account for access details.
+
+const CASPIO_LINK = process.env.REACT_APP_CASPIO_LINK;
 
 const AddKPI = () => {
   const [token, setToken] = useState(0);
@@ -39,12 +33,13 @@ const AddKPI = () => {
     setDependOptions(options);
   };
 
+  // Populates and submits row to Caspio KPI_Main table
   const handleSubmit = (e) => {
     e.preventDefault();
     
     const year = new Date().getFullYear();
 
-    fetch('https://c3hch526.caspio.com/rest/v2/tables/KPI_Main/records?response=rows', {
+    fetch(CASPIO_LINK + 'rest/v2/tables/KPI_Main/records?response=rows', {
       method: 'POST',
       body: `{
         "name": "${name}",
@@ -77,9 +72,9 @@ const AddKPI = () => {
   };
 
 
-  
+  // Fetches access token from Caspio
   useEffect(() => {
-    fetch('https://c3hch526.caspio.com/oauth/token', {
+    fetch(CASPIO_LINK + 'oauth/token', {
       method: 'POST',
       body: 'grant_type=client_credentials&client_id=a2fd89ad266d44155aacc97f651f0d011d4b9406d8d2f16bcb& client_secret=31d60501c58b4d2c8ca28dda729a8cd633e34444c88fc26ac7',
       headers: { 'Content-type': 'application/json' }
@@ -94,8 +89,9 @@ const AddKPI = () => {
     });
   }, []);
 
+  // Fetches and populates dependency_id and obj_id form selects
   useEffect(() => {
-    fetch('https://c3hch526.caspio.com/rest/v2/tables/KPI_Main/records?q.select=id', {
+    fetch(CASPIO_LINK + 'rest/v2/tables/KPI_Main/records?q.select=id', {
       method: 'GET',
       headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'applicaiton/json' }
     })
