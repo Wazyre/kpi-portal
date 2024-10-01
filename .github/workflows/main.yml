@@ -1,0 +1,39 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Build
+      run: |
+        npm install
+        npm react-scripts build
+      env:
+        REACT_APP_CASPIO_LINK: ${{ secrets.REACT_APP_CASPIO_LINK }}
+        
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3.0.1
+      with:
+        path: ./build
+        
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4.0.5
