@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
-import { Button, Col, Form, Row } from 'react-bootstrap'
+import { useLocation } from 'react-router-dom';
+import { Button, Form } from 'react-bootstrap'
 
 import '../styles/mainStyle.css'
 
@@ -18,9 +18,9 @@ const ApproveKPI = () => {
     const [approve, setApprove] = useState(false);
     const [comment, setComment] = useState("");
 
-    // const { kpi } = useParams();
     const location = useLocation();
 
+    // Updates KPI in Caspio database with approval status and comments
     const handleSubmit = (e) => {
         e.preventDefault();
         fetch(CASPIO_LINK + 'rest/v2/tables/KPI_Main/records?response=rows&q.where=id%3D' + location.state.id, {
@@ -46,9 +46,8 @@ const ApproveKPI = () => {
             })
     };
 
-
+    // Fetches access token from Caspio
     useEffect(() => {
-        console.log(CASPIO_LINK + 'oauth/token')
         fetch(CASPIO_LINK + 'oauth/token', {
             method: 'POST',
             body: 'grant_type=client_credentials&client_id=a2fd89ad266d44155aacc97f651f0d011d4b9406d8d2f16bcb& client_secret=31d60501c58b4d2c8ca28dda729a8cd633e34444c88fc26ac7',
@@ -63,6 +62,7 @@ const ApproveKPI = () => {
             });
     }, []);
 
+    // Fetches new KPI chosen in ChooseKPI.js
     useEffect(() => {
         fetch(CASPIO_LINK + 'rest/v2/tables/KPI_Main/records?q.where=id%3D' + location.state.id, {
             method: 'GET',

@@ -49,24 +49,24 @@ const Banner = () => {
                         </li>
 
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            <a className="nav-link dropdown-toggle" href="#0" id="navbardrop" data-toggle="dropdown">
                                 تقارير
                             </a>
                             <div className="dropdown-menu">
-                                <a className="dropdown-item" href="#">تقارير</a>
-                                <a className="dropdown-item" href="#">تقارير</a>
-                                <a className="dropdown-item" href="#">تقارير</a>
+                                <a className="dropdown-item" href="#0">تقارير</a>
+                                <a className="dropdown-item" href="#0">تقارير</a>
+                                <a className="dropdown-item" href="#0">تقارير</a>
                             </div>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            <a className="nav-link dropdown-toggle" href="#0" id="navbardrop" data-toggle="dropdown">
                                 تقارير
                             </a>
                             <div className="dropdown-menu">
-                                <a className="dropdown-item" href="#">تقارير</a>
-                                <a className="dropdown-item" href="#">تقارير</a>
-                                <a className="dropdown-item" href="#">تقارير</a>
-                                <a className="dropdown-item" href="#">تقارير</a>
+                                <a className="dropdown-item" href="#0">تقارير</a>
+                                <a className="dropdown-item" href="#0">تقارير</a>
+                                <a className="dropdown-item" href="#0">تقارير</a>
+                                <a className="dropdown-item" href="#0">تقارير</a>
                             </div>
                         </li>
                         <li className="nav-item">

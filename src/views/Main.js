@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { ListGroup } from "react-bootstrap";
 
+// Landing page, navigates to AddKPI.js and 
+// ApproveMain.js
 
 const Main = () => {
     const navigate = useNavigate();
@@ -8,7 +10,7 @@ const Main = () => {
     const handleNavigate = (e, link) => {
         e.preventDefault();
 
-        if(link === "add") navigate('/addkpi');
+        if(link === "add") navigate('addkpi');
         else navigate('approvekpi');
     };
 

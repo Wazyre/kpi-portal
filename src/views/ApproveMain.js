@@ -1,6 +1,9 @@
 import { Outlet } from "react-router-dom";
 import '../styles/mainStyle.css'
 
+// Component acts as container for both ApproveKPI.js
+// and ChooseKPI.js
+
 const ApproveMain = () => {
     return (
         <>

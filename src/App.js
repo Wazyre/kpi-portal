@@ -6,8 +6,8 @@ import ApproveMain from './views/ApproveMain.js';
 import Banner from './components/Banner.js';
 import ChooseKPI from './views/ChooseKPI.js';
 import Main from './views/Main.js';
-import { Container } from 'react-bootstrap';
 
+// Creates routes for all components and pages
 const App = () => {
     return (
         <Router>

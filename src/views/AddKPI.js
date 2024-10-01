@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import {Button, Col, Form, Row} from 'react-bootstrap';
+import {Button, Form} from 'react-bootstrap';
 
 // Component responsible for adding new KPIs through
 // a form. Uploads to Caspio database.

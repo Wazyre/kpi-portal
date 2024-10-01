@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-import ApproveKPI from "./ApproveKPI";
+import { useNavigate } from "react-router-dom";
 import { ListGroup } from "react-bootstrap";
 
 const CASPIO_LINK = process.env.REACT_APP_CASPIO_LINK;
+
+// Component that lists all unapproved and uncommented new
+// KPIs in Caspio database. Uploads to Caspio database.
+// All communication with Caspio is done through REST
+// calls. Please review Caspio Account for access details.
 
 const ChooseKPI = () => {
     const [token, setToken] = useState("");
@@ -21,12 +25,13 @@ const ChooseKPI = () => {
         })
     };
 
+    // Sends user to ApproveKPI.js with chosen KPI id
     const handleClick = (e, name, id) => {
-        // console.log(e)
         e.preventDefault();
-        navigate(`/kpi-portal/approvekpi/${name}`, {state:{id: id}})
+        navigate(`${name}`, {state:{id: id}})
     };
 
+    // Fetches access token from Caspio
     useEffect(() => {
         fetch(CASPIO_LINK + 'oauth/token', {
             method: 'POST',
@@ -42,6 +47,7 @@ const ChooseKPI = () => {
             });
     }, []);
 
+    // Fetches all new KPI without approval status or comments
     useEffect(() => {
         fetch(CASPIO_LINK + 'rest/v2/tables/KPI_Main/records?q.select=name%2C%20id&q.where=approve_status%3D0%20AND%20comment%3D\'\'', {
             method: 'GET',
