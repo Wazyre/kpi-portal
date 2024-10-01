@@ -10,6 +10,8 @@ import '../styles/mainStyle.css'
 // calls. Please review Caspio Account for access details.
 
 const CASPIO_LINK = process.env.REACT_APP_CASPIO_LINK;
+const CASPIO_ID = process.env.REACT_APP_CASPIO_ID;
+const CASPIO_SECRET = process.env.REACT_APP_CASPIO_SECRET;
 
 const ApproveKPI = () => {
     const [token, setToken] = useState(0);
@@ -50,7 +52,7 @@ const ApproveKPI = () => {
     useEffect(() => {
         fetch(CASPIO_LINK + 'oauth/token', {
             method: 'POST',
-            body: 'grant_type=client_credentials&client_id=a2fd89ad266d44155aacc97f651f0d011d4b9406d8d2f16bcb& client_secret=31d60501c58b4d2c8ca28dda729a8cd633e34444c88fc26ac7',
+            body: 'grant_type=client_credentials&client_id=' + CASPIO_ID + '&client_secret=' + CASPIO_SECRET,
             headers: { 'Content-type': 'application/json' }
         })
             .then((res) => res.json())
@@ -90,7 +92,7 @@ const ApproveKPI = () => {
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Dependency</Form.Label>
-                        <Form.Control disabled type="text" value={formData.dependency_id} />
+                        <Form.Control disabled type="text" value={formData.dependency_id === null ? "" : formData.dependency_id} />
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Department</Form.Label>
