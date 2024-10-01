@@ -1,0 +1,149 @@
+.navbar-expand-sm .navbar-nav .nav-link[dir="rtl"] {
+    color: white;
+}
+
+.navbar-expand-sm .navbar-nav .dropdown-menu {
+    position: absolute;
+    background: #2C9942;
+}
+
+.topnav[dir="rtl"] {
+    background-color: #2C9942;
+    margin: 0px 0px 10px 0px;
+    padding: 0px 0px 0px 16px !important;
+}
+
+.navbar-nav li.nav-item {
+    list-style-type: none !important;
+    font-family: DiabOrient012 !important;
+}
+
+.nav-link {
+    color: white !important;
+    font-size: 16px !important;
+    padding: 10px 10px;
+    font-family: DiabOrient012 !important;
+}
+
+.span1[dir="rtl"] {
+    float: left;
+    color: #ffc107;
+    text-align: center;
+    padding: 15px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    display: contents;
+    margin-right: 15px;
+    font-family: DiabOrient012 !important;
+}
+
+.topnav a[dir="rtl"] {
+    float: left;
+    color: #fff;
+    text-align: center;
+    padding: 15px 16px;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: DiabOrient012 !important;
+}
+
+.topnav a:hover[dir="rtl"] {
+    color: black !Important;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: DiabOrient012 !important;
+}
+
+.dropdown-menu.show[dir="rtl"] {
+    background: #2C9942 !important;
+    color: white !important;
+    font-family: DiabOrient012 !important;
+}
+
+.nav-link[dir="rtl"] {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    color: white !important;
+    font-family: DiabOrient012 !important;
+}
+
+.dropdown-item[dir="rtl"] {
+    text-align: left !important;
+    font-family: DiabOrient012 !important;
+    color: white !important;
+    background: #2C9942 !important;
+}
+
+.dropdown:hover>.dropdown-menu[dir="rtl"] {
+    display: block;
+    font-family: DiabOrient012 !important;
+    color: black !important;
+    background: #2C9942 !important;
+}
+
+.dropdown-item:hover[dir="rtl"] {
+    background: #2C9942 !important;
+    color: black !important;
+    font-family: DiabOrient012 !important;
+}
+
+li[dir="rtl"] {
+    list-style-type: none !important;
+    font-family: DiabOrient012 !important;
+}
+
+.navbar-nav .dropdown-menu[dir="rtl"] {
+    position: absolute !important;
+    float: none;
+    font-family: DiabOrient012 !important;
+    color: white !important;
+    background: #2C9942 !important;
+}
+
+.cbBackButtonContainer[dir="rtl"] {
+    padding-right: 0px !important;
+}
+
+.custom-toggler.navbar-toggler[dir="rtl"] {
+    border-color: white;
+}
+
+.navbar-toggler-container[dir="rtl"] {
+    padding: 10px 10px 10px 10px !important;
+}
+
+.nav a {
+    color: white !important;
+}
+
+.nav a:hover {
+    color: black !important;
+}
+
+.custom-toggler .navbar-toggler-icon[dir="rtl"] {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+#caspioform div[dir="rtl"] {
+    margin: 0px;
+}
+
+#caspioform div section[dir="rtl"] {
+    margin: 0px !important;
+}
+
+.cbResultSetTable[dir="rtl"] {
+    margin: 0px !important;
+}
+
+.cbSearchButtonContainer[dir="rtl"] {
+    padding-right: 0px !important;
+}
+
+.cbUpdateButtonContainer[dir="rtl"] {
+    padding-right: 0px !important;
+}
+
+.topnav.navbar.w-100.navbar-expand-sm {
+    margin-right: 15px;
+}

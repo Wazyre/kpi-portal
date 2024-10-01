@@ -1,0 +1,24 @@
+
+form {
+    margin: 15px;
+}
+h2, h5 {
+    margin-left: 15px;
+}
+.formGroup {
+    margin: 5px 0px;
+}
+.form-check {
+    margin-bottom: 15px;
+    margin-left: 5px;
+}
+.form-check-input {
+    padding: 8px !important;
+}
+.form-control, .form-select{
+    margin-bottom: 15px;
+}
+.submitBtn {
+    margin: 15px;
+    background-color: #2C9942 !important;
+}
