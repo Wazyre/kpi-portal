@@ -6,6 +6,7 @@ import ApproveMain from './views/ApproveMain.js';
 import Banner from './components/Banner.js';
 import ChooseKPI from './views/ChooseKPI.js';
 import Main from './views/Main.js';
+import ChartResults from './views/ChartResults.js';
 
 // Creates routes for all components and pages
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
                     <Route index element={<ChooseKPI />} />
                     <Route path=":kpi" element={<ApproveKPI />} />
                 </Route>
+                <Route path="/kpi-portal/chart" element={<ChartResults />} />
             </Routes>
         </Router>
         

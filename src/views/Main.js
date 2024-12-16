@@ -11,7 +11,8 @@ const Main = () => {
         e.preventDefault();
 
         if(link === "add") navigate('addkpi');
-        else navigate('approvekpi');
+        else if(link === "approve") navigate('approvekpi');
+        else navigate('chart');
     };
 
     return (
@@ -21,6 +22,9 @@ const Main = () => {
             </ListGroup.Item>
             <ListGroup.Item action onClick={e => handleNavigate(e, "approve")}>
                 Approve New KPI
+            </ListGroup.Item>
+            <ListGroup.Item action onClick={e => handleNavigate(e, "result")}>
+                View Result KPI
             </ListGroup.Item>
         </ListGroup>
     );
